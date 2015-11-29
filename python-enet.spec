@@ -10,6 +10,7 @@ Release:	0.%{svnrev}.%{rel}
 License:	MIT
 Group:		Libraries/Python
 URL:		http://code.google.com/p/pyenet
+BuildRequires:	rpmbuild(macros) >= 1.710
 Source0:	%{module}-trunk-%{svnrev}.tar.bz2
 # Source0-md5:	1fa3e0ff41974fee2defc88d03a1c293
 Patch0:		pyenet-build-against-system-enet.patch
