@@ -2,7 +2,7 @@
 # svn co http://pyenet.googlecode.com/svn/trunk/ pyenet-trunk-svn24
 %define		module	pyenet
 %define		svnrev	svn24
-%define		rel		2
+%define		rel		3
 Summary:	Python bindings for ENet
 Name:		python-enet
 Version:	0.0.0
