@@ -1,32 +1,33 @@
-# No releases, source only available through svn.
-# svn co http://pyenet.googlecode.com/svn/trunk/ pyenet-trunk-svn24
 %define		module	pyenet
-%define		svnrev	svn24
-%define		rel		4
 Summary:	Python bindings for ENet
+Summary(pl.UTF-8):	Wiązania Pythona do biblioteki ENet
 Name:		python-enet
-Version:	0.0.0
-Release:	0.%{svnrev}.%{rel}
-License:	MIT
+Version:	1.3.17
+Release:	1
+License:	BSD
 Group:		Libraries/Python
-URL:		http://code.google.com/p/pyenet
-BuildRequires:	rpmbuild(macros) >= 1.710
-Source0:	%{module}-trunk-%{svnrev}.tar.bz2
-# Source0-md5:	1fa3e0ff41974fee2defc88d03a1c293
+#Source0Download: https://pypi.org/simple/pyenet/
+Source0:	https://files.pythonhosted.org/packages/source/p/pyenet/%{module}-%{version}.tar.gz
+# Source0-md5:	baecbf35aa9365fac5172ff29abe8d84
 Patch0:		pyenet-build-against-system-enet.patch
+URL:		https://pypi.org/project/pyenet/
 BuildRequires:	enet-devel >= 1.3.3
 BuildRequires:	python-Cython >= 0.13
 BuildRequires:	python-devel
+BuildRequires:	rpm-pythonprov
+BuildRequires:	rpmbuild(macros) >= 1.714
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Pyenet was written originally by Scott Robinson <scott@tranzoa.com>.
+pyenet is a Python wrapper for the ENet library by Lee Salzman,
+<http://enet.bespin.org/>.
 
-It's currently maintained by Andrew Resch <andrewresch@gmail.com> and
-provides the Python bindings for ENet.
+%description -l pl.UTF-8
+pyenet to pythonowe obudowanie biblioteki ENet autorstwa Lee Salzmana
+<http://enet.bespin.org/>.
 
 %prep
-%setup -q -n %{module}-trunk-%{svnrev}
+%setup -q -n %{module}-%{version}
 %patch0 -p1
 
 %build
@@ -34,6 +35,7 @@ provides the Python bindings for ENet.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %py_install
 
 %clean
@@ -41,6 +43,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc LICENSE README ChangeLog
+%doc ChangeLog LICENSE README.rst
 %attr(755,root,root) %{py_sitedir}/enet.so
-%{py_sitedir}/enet-%{version}-py*.egg-info
+%{py_sitedir}/pyenet-%{version}-py*.egg-info
