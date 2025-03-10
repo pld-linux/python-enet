@@ -9,7 +9,7 @@ Summary:	Python bindings for ENet
 Summary(pl.UTF-8):	Wiązania Pythona do biblioteki ENet
 Name:		python-enet
 Version:	1.3.17
-Release:	1
+Release:	2
 License:	BSD
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/pyenet/
